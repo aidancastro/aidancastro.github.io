@@ -487,6 +487,8 @@ footer.site {
 }
 figure.project.carousel {
   padding: 0;
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
 }
 .carousel-inner {
   position: absolute;
