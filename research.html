@@ -33,8 +33,7 @@
 
       <a href="#pifa" class="proj-card">
         <div class="visual">
-          <!-- Replace placeholder with: <img src="assets/proj_pifa.png" alt="PIFA HFSS geometry"> -->
-          <div class="placeholder">[ HFSS geometry + S₁₁ plot<br>assets/proj_pifa.png ]</div>
+          <img src="assets/WebsitePhotos/trimetric_PIFA.png" alt="PIFA HFSS geometry">
         </div>
         <div class="body">
           <div class="when">2025 – present · HFSS</div>
@@ -48,7 +47,7 @@
 
       <a href="#radar" class="proj-card">
         <div class="visual">
-          <div class="placeholder">[ 3D backprojection reconstruction<br>assets/proj_radar.png ]</div>
+          <img src="assets/WebsitePhotos/PrinterMIMOResults.png" alt="MIMO radar imaging results">
         </div>
         <div class="body">
           <div class="when">2024 – 2025 · MATLAB</div>
@@ -62,7 +61,7 @@
 
       <a href="#lna2" class="proj-card">
         <div class="visual">
-          <div class="placeholder">[ ADS schematic + S-params<br>assets/proj_lna2.png ]</div>
+          <img src="assets/WebsitePhotos/LNA_microstrip.png" alt="LNA microstrip layout">
         </div>
         <div class="body">
           <div class="when">2025 · ADS</div>
@@ -76,7 +75,7 @@
 
       <a href="#lna1" class="proj-card">
         <div class="visual">
-          <div class="placeholder">[ Bias network schematic<br>assets/proj_lna1.png ]</div>
+          <img src="assets/WebsitePhotos/LNA_microstrip_schematic.png" alt="LNA bias network schematic">
         </div>
         <div class="body">
           <div class="when">2025 · ADS</div>
@@ -132,10 +131,22 @@
       <p>Designed a meandered, folded planar inverted-F antenna covering LTE Band 8 (880&ndash;960 MHz) and LTE Band 3 (1.71&ndash;1.88 GHz) within a 35×10×5 mm volume on a 120×60 mm ground plane. A shorted parasitic strip recovers the LTE-3 bandwidth lost to the compact footprint. The design is benchmarked against the Chu&ndash;McLean Q bound (ka ≈ 0.35) to characterize the size&ndash;bandwidth tradeoff.</p>
       <figure class="project carousel" style="aspect-ratio: 16/9;">
         <div class="carousel-inner">
-          <div class="carousel-item"><img src="assets/WebsitePhotos/PIFA_el.png" alt="PIFA elevation pattern"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/PIFA_az.png" alt="PIFA azimuth pattern"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/PIFA_S11.png" alt="PIFA S11 match"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/PIFA_top.png" alt="PIFA top view"></div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/PIFA_el.png" alt="PIFA elevation pattern">
+            <div class="carousel-caption">Elevation radiation pattern — E-plane cut</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/PIFA_az.png" alt="PIFA azimuth pattern">
+            <div class="carousel-caption">Azimuth radiation pattern — H-plane cut</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/PIFA_S11.png" alt="PIFA S11 match">
+            <div class="carousel-caption">Simulated |S₁₁| — dual-band match at LTE 8 and LTE 3</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/PIFA_top.png" alt="PIFA top view">
+            <div class="carousel-caption">Top-view layout — meandered radiator with parasitic strip</div>
+          </div>
         </div>
         <div class="carousel-dots">
           <button class="carousel-dot active"></button>
@@ -143,7 +154,6 @@
           <button class="carousel-dot"></button>
           <button class="carousel-dot"></button>
         </div>
-        <figcaption style="position: absolute; bottom: 4rem; left: 0; right: 0; text-align: center; mix-blend-mode: multiply; color: var(--paper);">Fig. 1 — Folded PIFA topology with parasitic strip; simulated |S₁₁| showing dual-band match.</figcaption>
       </figure>
       <div class="tags" style="margin-top: 1rem;">
         <span class="tag">HFSS</span><span class="tag">PIFA</span><span class="tag">LTE</span><span class="tag">multiband</span><span class="tag">Chu–McLean</span>
@@ -156,11 +166,26 @@
       <p>Built a 3D backprojection imaging pipeline for an FMCW MIMO module scanned in a snake pattern via a modified 3D-printer stage. Implemented FOV masking, coherent vs. incoherent summation, background subtraction, outlier rejection for corrupted TX/RX pairs, and near-field bistatic phase calibration using redundant-baseline techniques. Currently extending toward MIMO-SAR imaging with a literature survey contrasting commercial mmWave modules against custom-built systems.</p>
       <figure class="project carousel" style="aspect-ratio: 16/9;">
         <div class="carousel-inner">
-          <div class="carousel-item"><img src="assets/WebsitePhotos/scanning_pattern.png" alt="Radar scanning pattern"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/3drad_920.png" alt="3D radar 920 MHz"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/3drad_1790.png" alt="3D radar 1790 MHz"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/printer_testbed.png" alt="Printer testbed setup"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/PrinterMIMOResults.png" alt="Printer MIMO results"></div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/scanning_pattern.png" alt="Radar scanning pattern">
+            <div class="carousel-caption">Snake scanning pattern — 20×20 virtual aperture</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/3drad_920.png" alt="3D radar 920 MHz">
+            <div class="carousel-caption">3D backprojection reconstruction — 920 MHz center frequency</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/3drad_1790.png" alt="3D radar 1790 MHz">
+            <div class="carousel-caption">3D backprojection reconstruction — 1790 MHz center frequency</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/printer_testbed.png" alt="Printer testbed setup">
+            <div class="carousel-caption">Modified 3D-printer stage used as scanning gantry</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/PrinterMIMOResults.png" alt="Printer MIMO results">
+            <div class="carousel-caption">Coherent backprojection imaging results — planar target</div>
+          </div>
         </div>
         <div class="carousel-dots">
           <button class="carousel-dot active"></button>
@@ -169,7 +194,6 @@
           <button class="carousel-dot"></button>
           <button class="carousel-dot"></button>
         </div>
-        <figcaption style="position: absolute; bottom: 4rem; left: 0; right: 0; text-align: center; mix-blend-mode: multiply; color: var(--paper);">Fig. 2 — Backprojection reconstruction of a planar target; coherent summation across the 20×20 virtual array.</figcaption>
       </figure>
       <div class="tags" style="margin-top: 1rem;">
         <span class="tag">MATLAB</span><span class="tag">FMCW</span><span class="tag">MIMO</span><span class="tag">backprojection</span><span class="tag">near-field</span>
@@ -182,14 +206,19 @@
       <p>Two-stage approach: stability analysis via μ-factor and Rollett's K, source/load impedance synthesis with Modelithics-validated component models, and ADS optimization across input/output matching networks. Includes layout-level cosimulation with corrected MSub units and reviewed port placement against the schematic.</p>
       <figure class="project carousel" style="aspect-ratio: 16/9;">
         <div class="carousel-inner">
-          <div class="carousel-item"><img src="assets/WebsitePhotos/LNA_microstrip.png" alt="LNA microstrip layout"></div>
-          <div class="carousel-item"><img src="assets/WebsitePhotos/LNA_microstrip_schematic.png" alt="LNA microstrip schematic"></div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/LNA_microstrip.png" alt="LNA microstrip layout">
+            <div class="carousel-caption">Microstrip layout — BFP420 with input/output matching networks</div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/WebsitePhotos/LNA_microstrip_schematic.png" alt="LNA microstrip schematic">
+            <div class="carousel-caption">Schematic — bias network and L-match output</div>
+          </div>
         </div>
         <div class="carousel-dots">
           <button class="carousel-dot active"></button>
           <button class="carousel-dot"></button>
         </div>
-        <figcaption style="position: absolute; bottom: 4rem; left: 0; right: 0; text-align: center; mix-blend-mode: multiply; color: var(--paper);">Fig. 3 — Bias network, L-match output, and small-signal S-parameter response.</figcaption>
       </figure>
       <div class="tags" style="margin-top: 1rem;">
         <span class="tag">ADS</span><span class="tag">LNA</span><span class="tag">BJT</span><span class="tag">Modelithics</span><span class="tag">FR4</span>
@@ -235,38 +264,6 @@
     <p>Simulation: Ansys HFSS, Keysight ADS (Modelithics models). Numerical: MATLAB, Python (NumPy/SciPy, OpenCV). Signal processing: backprojection, RMA / ω-k, Stolt interpolation, near-field calibration. Hardware: NXP PBR941, Infineon BFP420, FR4 / RO4350B substrates, FMCW MIMO modules (IMAGEVK-74).</p>
   </section>
 
-  <section>
-    <span class="eyebrow">Engineering gallery</span>
-    <h2>Figures &amp; results.</h2>
-    <p>Scrollable strip of recent HFSS and MATLAB outputs.</p>
-    <div class="scroll-strip">
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ HFSS PIFA geometry ]</div></div>
-        <div class="caption"><h4>PIFA — HFSS geometry</h4><div class="sub">EEL 4461/5462 · 2025</div></div>
-      </div>
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ S₁₁ dual-band match ]</div></div>
-        <div class="caption"><h4>PIFA — S₁₁</h4><div class="sub">LTE 3 / LTE 8</div></div>
-      </div>
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ Backprojection image ]</div></div>
-        <div class="caption"><h4>Radar reconstruction</h4><div class="sub">20×20 virtual array</div></div>
-      </div>
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ Array radiation pattern ]</div></div>
-        <div class="caption"><h4>8-elem linear array</h4><div class="sub">2.4 GHz · HFSS</div></div>
-      </div>
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ LNA S-params ]</div></div>
-        <div class="caption"><h4>BFP420 LNA</h4><div class="sub">1.9 GHz · ADS</div></div>
-      </div>
-      <div class="scroll-card eng">
-        <div class="photo"><div class="placeholder">[ Patch antenna pattern ]</div></div>
-        <div class="caption"><h4>4.2 GHz patch</h4><div class="sub">HFSS</div></div>
-      </div>
-    </div>
-    <p class="scroll-hint">← scroll →</p>
-  </section>
 
 </main>
 
