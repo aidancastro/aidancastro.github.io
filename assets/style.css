@@ -490,6 +490,10 @@ figure.project.carousel {
   margin-left: calc(-1 * var(--gutter));
   margin-right: calc(-1 * var(--gutter));
 }
+figure.project.carousel.carousel--adaptive {
+  transition: aspect-ratio 0.4s ease;
+  max-height: 85vh;
+}
 .carousel-inner {
   position: absolute;
   inset: 0;
