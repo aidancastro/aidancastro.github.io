@@ -7,8 +7,8 @@
 <meta name="description" content="RF, antenna, and radar imaging research projects." />
 <link rel="stylesheet" href="assets/style.css" />
 <style>
-  /* CSS-only horizontal carousel — each slide keeps its own aspect ratio
-     pulled directly from the source image's pixel dimensions. */
+  /* CSS-only horizontal carousel — images display at native aspect ratio
+     with captions BELOW (not overlaid). */
   .img-set {
     display: flex;
     gap: 1rem;
@@ -25,31 +25,30 @@
   .img-set::-webkit-scrollbar-thumb { background: var(--copper); border-radius: 4px; }
   .img-slide {
     flex: 0 0 auto;
-    height: clamp(280px, 50vh, 460px);
+    max-height: clamp(280px, 50vh, 460px);
     scroll-snap-align: start;
     margin: 0;
-    position: relative;
     background: var(--paper-deep);
     border: 1px solid var(--rule-strong);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .img-slide > img {
-    width: 100%;
-    height: 100%;
+    max-height: clamp(240px, 45vh, 420px);
+    width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
   }
   .img-slide > figcaption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
     padding: 0.45rem 1rem;
-    background: rgba(20,33,61,0.72);
-    color: var(--paper);
+    background: var(--paper-deep, #f0ece4);
+    color: var(--ink, #14213d);
     font-family: var(--serif);
     font-style: italic;
     font-size: 0.86rem;
     text-align: center;
-    pointer-events: none;
+    border-top: 1px solid var(--rule-strong, #ccc);
   }
   .img-hint {
     font-family: var(--mono);
@@ -112,69 +111,11 @@
         </div>
       </a>
 
-      <a href="#lna2" class="proj-card">
-        <div class="visual">
-          <img src="assets/WebsitePhotos/LNA_microstrip.png" alt="LNA microstrip layout">
-        </div>
-        <div class="body">
-          <div class="when">2025 · ADS</div>
-          <h3>1.9 GHz LNA — BFP420 on FR4</h3>
-          <p>Two-stage matching with Modelithics models. Target: 14 ± 1.5 dB gain, NF ≤ 2.0 dB, unconditional stability.</p>
-          <div class="tags">
-            <span class="tag">ADS</span><span class="tag">LNA</span><span class="tag">Modelithics</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#lna1" class="proj-card">
-        <div class="visual">
-          <img src="assets/WebsitePhotos/LNA_microstrip_schematic.png" alt="LNA bias network schematic">
-        </div>
-        <div class="body">
-          <div class="when">2025 · ADS</div>
-          <h3>900 MHz LNA — NXP PBR941</h3>
-          <p>Voltage-feedback bias, DC feed/block synthesis, stability and noise-figure analysis. Group fabrication.</p>
-          <div class="tags">
-            <span class="tag">ADS</span><span class="tag">BJT</span><span class="tag">bias</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#patch" class="proj-card">
-        <div class="visual">
-          <div class="placeholder">[ Patch antenna pattern<br>assets/proj_patch.png ]</div>
-        </div>
-        <div class="body">
-          <div class="when">2025 · HFSS / MATLAB</div>
-          <h3>Microstrip Patch — 4.2 GHz</h3>
-          <p>Parameter design in MATLAB, coaxial-probe feed in HFSS, gain and impedance bandwidth characterization.</p>
-          <div class="tags">
-            <span class="tag">HFSS</span><span class="tag">patch</span><span class="tag">MATLAB</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#array" class="proj-card">
-        <div class="visual">
-          <div class="placeholder">[ 8-element array pattern<br>assets/proj_array.png ]</div>
-        </div>
-        <div class="body">
-          <div class="when">2025 · HFSS</div>
-          <h3>8-Element Linear Array — 2.4 GHz</h3>
-          <p>Per-element port assignment, radiation boundary setup, pattern-multiplication analysis.</p>
-          <div class="tags">
-            <span class="tag">HFSS</span><span class="tag">array</span><span class="tag">beamforming</span>
-          </div>
-        </div>
-      </a>
-
     </div>
   </section>
 
   <!-- ============================================================
-       PROJECT DETAILS — anchored from the tile grid.
-       Each .img-slide aspect-ratio is taken directly from the source
-       file's pixel dimensions so every image renders at its true shape.
+       PROJECT DETAILS
        ============================================================ -->
   <section style="padding-bottom: 0;">
     <span class="eyebrow eng">Project details</span>
@@ -185,23 +126,23 @@
       <h3>Compact Dual-Band PIFA for LTE Bands 3 and 8</h3>
       <p>Designed a meandered, folded planar inverted-F antenna covering LTE Band 8 (880-960 MHz) and LTE Band 3 (1.71-1.88 GHz) within a 35×10×5 mm volume on a 120×60 mm ground plane. A shorted parasitic strip recovers the LTE-3 bandwidth lost to the compact footprint. The design is benchmarked against the Chu&ndash;McLean Q bound (ka ≈ 0.35) to characterize the size&ndash;bandwidth tradeoff.</p>
       <div class="img-set">
-        <figure class="img-slide" style="aspect-ratio: 1430/529;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/trimetric_PIFA.png" alt="PIFA trimetric view">
           <figcaption>Trimetric HFSS geometry — folded PIFA with ground plane</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 1430/661;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/PIFA_top.png" alt="PIFA top view">
           <figcaption>Top-view layout — meandered radiator with parasitic strip</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 624/240;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/PIFA_S11.png" alt="PIFA S11 match">
           <figcaption>Simulated |S₁₁| — dual-band match at LTE 8 and LTE 3</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 624/517;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/PIFA_el.png" alt="PIFA elevation pattern">
           <figcaption>Elevation radiation pattern — E-plane cut</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 624/484;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/PIFA_az.png" alt="PIFA azimuth pattern">
           <figcaption>Azimuth radiation pattern — H-plane cut</figcaption>
         </figure>
@@ -217,19 +158,19 @@
       <h3>mmWave SFCW MIMO Radar Imaging</h3>
       <p>Built a 3D backprojection imaging pipeline for an SFCW MIMO module scanned in a snake pattern via a modified 3D-printer stage. Implemented FOV masking, coherent vs. incoherent summation, background subtraction, outlier rejection for corrupted TX/RX pairs, and near-field bistatic phase calibration using redundant-baseline techniques. Currently extending toward MIMO-SAR imaging with a literature survey contrasting commercial mmWave modules against custom-built systems.</p>
       <div class="img-set">
-        <figure class="img-slide" style="aspect-ratio: 1302/944;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/scanning_pattern.png" alt="Radar scanning pattern">
           <figcaption>Snake scanning pattern — 20×20 virtual aperture</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 1082/1492;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/printer_testbed.png" alt="Printer testbed setup">
           <figcaption>Modified 3D-printer stage used as scanning gantry</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 2708/1047;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/PrinterMIMOResults.png" alt="Printer MIMO results">
           <figcaption>Coherent backprojection imaging results — planar target</figcaption>
         </figure>
-        <figure class="img-slide" style="aspect-ratio: 1288/861;">
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/WAMICON_poster.png" alt="WAMICON research poster">
           <figcaption>WAMICON research poster — mmWave MIMO radar imaging</figcaption>
         </figure>
@@ -237,57 +178,6 @@
       <p class="img-hint">← scroll →</p>
       <div class="tags" style="margin-top: 1rem;">
         <span class="tag">MATLAB</span><span class="tag">SFCW</span><span class="tag">MIMO</span><span class="tag">backprojection</span><span class="tag">near-field</span>
-      </div>
-    </article>
-
-    <article id="lna2" class="proj-detail">
-      <div class="meta">2025 · RF/Microwave II · Group 2 · ADS</div>
-      <h3>1.9 GHz BFP420 LNA (Design 2)</h3>
-      <p>Two-stage approach: stability analysis via μ-factor and Rollett's K, source/load impedance synthesis with Modelithics-validated component models, and ADS optimization across input/output matching networks. Includes layout-level cosimulation with corrected MSub units and reviewed port placement against the schematic.</p>
-      <div class="img-set">
-        <figure class="img-slide" style="aspect-ratio: 650/297;">
-          <img src="assets/WebsitePhotos/LNA_microstrip.png" alt="LNA microstrip layout">
-          <figcaption>Microstrip layout — BFP420 with input/output matching networks</figcaption>
-        </figure>
-        <figure class="img-slide" style="aspect-ratio: 650/385;">
-          <img src="assets/WebsitePhotos/LNA_microstrip_schematic.png" alt="LNA microstrip schematic">
-          <figcaption>Schematic — bias network and L-match output</figcaption>
-        </figure>
-      </div>
-      <p class="img-hint">← scroll →</p>
-      <div class="tags" style="margin-top: 1rem;">
-        <span class="tag">ADS</span><span class="tag">LNA</span><span class="tag">BJT</span><span class="tag">Modelithics</span><span class="tag">FR4</span>
-      </div>
-    </article>
-
-    <article id="lna1" class="proj-detail">
-      <div class="meta">2025 · RF/Microwave II · NXP PBR941 · ADS</div>
-      <h3>900 MHz PBR941 LNA — Voltage-Feedback Bias</h3>
-      <p>First LNA design iteration with voltage-feedback bias network, DC feed/block component selection, and Modelithics model integration. Stability and noise-figure analysis completed; groupmate's design proceeded to fabrication.</p>
-      <figure class="project">
-        <div class="placeholder">[ Bias schematic — drop image at assets/proj_lna1_detail.png ]</div>
-        <figcaption>Fig. 4 — Voltage-feedback bias network with DC feed/block selection.</figcaption>
-      </figure>
-      <div class="tags" style="margin-top: 1rem;">
-        <span class="tag">ADS</span><span class="tag">PBR941</span><span class="tag">bias</span>
-      </div>
-    </article>
-
-    <article id="patch" class="proj-detail">
-      <div class="meta">2025 · EEL 4461/5462 · MATLAB + HFSS</div>
-      <h3>Rectangular Microstrip Patch Antenna at 4.2 GHz</h3>
-      <p>End-to-end design from analytical parameter calculation in MATLAB through HFSS simulation. Feed-point optimization, probe-port assignment, and characterization of radiation pattern, gain, and impedance bandwidth.</p>
-      <div class="tags" style="margin-top: 1rem;">
-        <span class="tag">HFSS</span><span class="tag">patch</span><span class="tag">MATLAB</span>
-      </div>
-    </article>
-
-    <article id="array" class="proj-detail">
-      <div class="meta">2025 · EEL 4461/5462 · HFSS</div>
-      <h3>8-Element Linear Antenna Array at 2.4 GHz</h3>
-      <p>Linear array design including radiation boundary setup, per-element port assignment, and pattern-multiplication analysis. Supporting work for Yagi&ndash;Uda, aperture, and Chebyshev problem sets.</p>
-      <div class="tags" style="margin-top: 1rem;">
-        <span class="tag">HFSS</span><span class="tag">array</span><span class="tag">beamforming</span>
       </div>
     </article>
 
