@@ -122,7 +122,7 @@
     <h2>In depth.</h2>
 
     <article id="pifa" class="proj-detail">
-      <div class="meta">2025 – present · EEL 4461/5462 · Dr. Mumcu</div>
+      <div class="meta">Spring 2026 · EEL 4461/5462 · Dr. Mumcu</div>
       <h3>Compact Dual-Band PIFA for LTE Bands 3 and 8</h3>
       <p>Designed a meandered, folded planar inverted-F antenna covering LTE Band 8 (880-960 MHz) and LTE Band 3 (1.71-1.88 GHz) within a 35×10×5 mm volume on a 120×60 mm ground plane. A shorted parasitic strip recovers the LTE-3 bandwidth lost to the compact footprint. The design is benchmarked against the Chu&ndash;McLean Q bound (ka ≈ 0.35) to characterize the size&ndash;bandwidth tradeoff.</p>
       <div class="img-set">
@@ -154,7 +154,7 @@
     </article>
 
     <article id="radar" class="proj-detail">
-      <div class="meta">2024 – 2025 · Independent research · IMAGEVK-74 module</div>
+      <div class="meta">2025 February - Prersent · REU with Dr. Stavros Vakalis · IMAGEVK-74 module</div>
       <h3>mmWave SFCW MIMO Radar Imaging</h3>
       <p>Built a 3D backprojection imaging pipeline for an SFCW MIMO module scanned in a snake pattern via a modified 3D-printer stage. Implemented FOV masking, coherent vs. incoherent summation, background subtraction, outlier rejection for corrupted TX/RX pairs, and near-field bistatic phase calibration using redundant-baseline techniques. Currently extending toward MIMO-SAR imaging with a literature survey contrasting commercial mmWave modules against custom-built systems.</p>
       <div class="img-set">
@@ -178,6 +178,29 @@
       <p class="img-hint">← scroll →</p>
       <div class="tags" style="margin-top: 1rem;">
         <span class="tag">MATLAB</span><span class="tag">SFCW</span><span class="tag">MIMO</span><span class="tag">backprojection</span><span class="tag">near-field</span>
+      </div>
+    </article>
+
+    </article id="radar" class="proj-detail">
+      <div class="meta">2026 Spring · RF/Microwave Circuits II · BFP420 NPN BJT transistor on an FR4 substrate </div>
+      <h3>1.9 GHz LNA</h3>
+      <div class="img-set">
+        <figure class="img-slide">
+          <img src="assets/WebsitePhotos/LNA_schematic.png" alt="LNA schematic">
+          <figcaption>Complete microstrip implementation schematic with full Modelithics parasitic models, MTAPER transitions, MCORN bends, MLIN interconnects, and emitter VIAGND. Input is on the left, output is on the right, and bias is on the top.</figcaption>
+        </figure>
+        <figure class="img-slide">
+          <img src="assets/WebsitePhotos/LNA30BW.png" alt="LNA30BW">
+          <figcaption>Simulated performance of the full parasitic lumped component design over the 30% bandwidth (1.615 to 2.185 GHz). S11 approximately -10 dB, S22 approximately -20 dB, gain approximately 14 dB, NF approximately 1.8 dB, and K > 1 across the band.</figcaption>
+        </figure>
+        <figure class="img-slide">
+          <img src="assets/WebsitePhotos/LNA_Broadband.png" alt="LNA Broadband">
+          <figcaption>Broadband simulation of the full parasitic lumped design from 1 to 6 GHz. A resonance spike is visible near 1.5 GHz attributed to parasitic interactions outside the design band. Performance within the design bandwidth is well-behaved.</figcaption>
+        </figure>
+      </div>
+      <p class="img-hint">← scroll →</p>
+      <div class="tags" style="margin-top: 1rem;">
+        <span class="tag">ADS</span><span class="tag">LNA</span><span class="tag">Input/Output Matching Networks</span><span class="tag">Stability Analysis</span><span class="tag">Modelithics Parasitic Components and Fabrication</span>
       </div>
     </article>
 
