@@ -1,28 +1,34 @@
 /* ============================================================
-   Aidan Castro — personal site v2
-   Warm dual-identity: engineering copper + music burgundy
-   References: Valtorta (Owlstown), Rumpf (raymondrumpf.com)
+   Aidan Castro — personal site v3
+   USF dual-identity: engineering green + music gold
+   Palette: USF Green #006747 · USF Gold #CFC493
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --paper:        #f5f1e8;
-  --paper-deep:   #ebe4d3;
-  --paper-dark:   #1f1c14;
-  --ink:          #14213d;
-  --ink-soft:     #2a3658;
-  --ink-mute:     #5c5648;
+  /* Surfaces — warm off-white with a faint green undertone */
+  --paper:        #fbfaf6;
+  --paper-deep:   #eef0e8;
+  --paper-dark:   #0f1f18;
 
-  --copper:       #b8843d;
-  --copper-deep:  #8f6529;
-  --copper-soft:  #d4a368;
+  /* Ink — deep USF-green charcoal instead of cold navy */
+  --ink:          #16261d;
+  --ink-soft:     #324b3e;
+  --ink-mute:     #5f6f64;
 
-  --burgundy:     #7a2e2e;
-  --burgundy-soft:#a14545;
+  /* USF Green family (engineering accent) — replaces copper */
+  --copper:       #006747;   /* USF Green */
+  --copper-deep:  #00492f;   /* darker green for text/contrast */
+  --copper-soft:  #2f8a66;   /* lighter green for highlights */
 
-  --rule:         #2a26201a;
-  --rule-strong:  #2a262033;
+  /* USF Gold family (music accent) — replaces burgundy */
+  --burgundy:     #897019;   /* deep gold, readable on light */
+  --burgundy-soft:#b2922c;   /* brighter gold */
+  --gold:         #cfc493;   /* USF Gold — for fills & borders */
+
+  --rule:         #16261d1a;
+  --rule-strong:  #16261d33;
 
   --serif: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
   --sans:  'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,6 +36,9 @@
 
   --maxw: 1180px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  --shadow-soft: 0 12px 28px rgba(0,73,47,0.12);
+  --shadow-tile: 0 8px 24px rgba(0,73,47,0.10);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +52,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: radial-gradient(circle at 1px 1px, rgba(42,38,32,0.035) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(0,73,47,0.045) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
@@ -52,7 +61,7 @@ header.site {
   border-bottom: 1px solid var(--rule);
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(245,241,232,0.92);
+  background: rgba(251,250,246,0.9);
 }
 nav.site {
   max-width: var(--maxw); margin: 0 auto;
@@ -112,24 +121,28 @@ a.music-link:hover { color: var(--burgundy-soft); }
 /* HERO */
 .hero-v2 { padding-top: 0; border-bottom: 1px solid var(--rule); }
 .hero-banner {
-  height: 220px;
+  height: 240px;
   background:
-    linear-gradient(180deg, rgba(20,33,61,0) 60%, rgba(245,241,232,0.6) 100%),
-    repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 18px),
-    repeating-linear-gradient(0deg, var(--ink) 0 1px, transparent 1px 18px),
-    linear-gradient(135deg, var(--paper-deep) 0%, var(--paper) 60%, #e6d9b8 100%);
-  background-blend-mode: multiply, multiply, multiply, normal;
-  opacity: 0.95; position: relative; overflow: hidden;
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 20px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 20px),
+    linear-gradient(120deg, #00492f 0%, #006747 48%, #1d7d59 100%);
+  position: relative; overflow: hidden;
 }
+/* gold concentric "resonance" rings — the through-line of the site */
 .hero-banner::after {
   content: ''; position: absolute;
-  top: 50%; right: -50px;
-  width: 280px; height: 280px;
+  top: 50%; right: -60px;
+  width: 320px; height: 320px;
   transform: translateY(-50%);
   background: radial-gradient(circle,
-    transparent 30%, var(--copper) 30% 31%, transparent 31% 45%,
-    var(--copper) 45% 46%, transparent 46% 60%, var(--copper) 60% 61%, transparent 61%);
-  opacity: 0.25; border-radius: 50%;
+    transparent 28%, var(--gold) 28% 29.5%, transparent 29.5% 44%,
+    var(--gold) 44% 45.5%, transparent 45.5% 60%, var(--gold) 60% 61.5%, transparent 61.5%);
+  opacity: 0.55; border-radius: 50%;
+}
+/* soft fade so the headshot/name area reads cleanly */
+.hero-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,40,26,0.15) 0%, rgba(0,40,26,0) 45%, rgba(0,40,26,0.25) 100%);
 }
 .hero-identity {
   max-width: var(--maxw); margin: 0 auto;
@@ -143,7 +156,7 @@ a.music-link:hover { color: var(--burgundy-soft); }
   border: 5px solid var(--paper);
   background: var(--paper-deep);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(20,33,61,0.15);
+  box-shadow: 0 8px 24px rgba(0,73,47,0.18);
   display: flex; align-items: center; justify-content: center;
 }
 .headshot img { width: 100%; height: 100%; object-fit: cover; }
@@ -200,7 +213,7 @@ a.music-link:hover { color: var(--burgundy-soft); }
 }
 .dest-tile:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(20,33,61,0.1);
+  box-shadow: var(--shadow-soft);
   border-color: var(--ink);
 }
 .dest-tile .tile-visual {
@@ -264,7 +277,7 @@ a.music-link:hover { color: var(--burgundy-soft); }
 }
 .proj-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(20,33,61,0.1);
+  box-shadow: var(--shadow-tile);
 }
 .proj-card .visual {
   aspect-ratio: 16 / 9; background: var(--paper-deep);
@@ -275,7 +288,7 @@ a.music-link:hover { color: var(--burgundy-soft); }
   width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);
-  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(20,33,61,0.04) 10px 11px);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(0,73,47,0.05) 10px 11px);
   text-align: center; padding: 1rem;
 }
 .proj-card .body { padding: 1.2rem 1.4rem 1.4rem; }
@@ -293,7 +306,7 @@ a.music-link:hover { color: var(--burgundy-soft); }
   padding: 0.2rem 0.55rem; background: var(--paper-deep);
   color: var(--ink-soft); letter-spacing: 0.04em;
 }
-.tag.music { background: rgba(122,46,46,0.08); color: var(--burgundy); }
+.tag.music { background: rgba(137,112,25,0.12); color: var(--burgundy); }
 
 /* PROJECT DETAIL */
 .proj-detail {
@@ -314,7 +327,7 @@ figure.project img { width: 100%; display: block; }
 figure.project .placeholder {
   aspect-ratio: 16 / 9;
   display: flex; align-items: center; justify-content: center;
-  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(20,33,61,0.04) 10px 11px);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(0,73,47,0.05) 10px 11px);
   color: var(--ink-mute); font-family: var(--mono); font-size: 0.85rem;
   text-align: center; padding: 1rem;
 }
@@ -349,10 +362,10 @@ figure.project figcaption {
   width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);
-  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(122,46,46,0.04) 10px 11px);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(137,112,25,0.07) 10px 11px);
 }
 .scroll-card.eng .photo .placeholder {
-  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(184,132,61,0.06) 10px 11px);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(0,103,71,0.07) 10px 11px);
 }
 .scroll-card .caption { padding: 0.85rem 1rem 1rem; }
 .scroll-card .caption h4 { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; margin-bottom: 0.15rem; }
@@ -522,7 +535,7 @@ figure.project.carousel.carousel--adaptive {
   left: 0;
   right: 0;
   padding: 0.45rem 1rem;
-  background: rgba(20,33,61,0.72);
+  background: rgba(0,73,47,0.82);
   color: var(--paper);
   font-family: var(--serif);
   font-style: italic;
@@ -543,19 +556,19 @@ figure.project.carousel.carousel--adaptive {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(20,33,61,0.2);
-  border: 2px solid rgba(20,33,61,0.5);
+  background: rgba(0,73,47,0.22);
+  border: 2px solid rgba(0,73,47,0.5);
   cursor: pointer;
   transition: background 0.3s ease, border-color 0.3s ease;
   padding: 0;
 }
 .carousel-dot.active {
-  background: rgba(20,33,61,0.85);
-  border-color: rgba(20,33,61,0.85);
+  background: rgba(0,73,47,0.9);
+  border-color: rgba(0,73,47,0.9);
 }
 .carousel-dot:hover {
-  background: rgba(20,33,61,0.5);
-  border-color: rgba(20,33,61,0.7);
+  background: rgba(0,73,47,0.55);
+  border-color: rgba(0,73,47,0.75);
 }
 
 @keyframes rise {
