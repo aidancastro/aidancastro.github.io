@@ -481,6 +481,46 @@ figure.project figcaption {
 }
 .cv-item p { font-size: 0.95rem; margin-bottom: 0.4rem; }
 
+/* CV — coursework groups */
+.course-group {
+  padding: 1.1rem 0; border-bottom: 1px dotted var(--rule);
+}
+.course-group:last-child { border-bottom: none; }
+.course-group h4 {
+  font-family: var(--mono); font-weight: 500;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--copper-deep); margin-bottom: 0.75rem;
+}
+.course-list {
+  list-style: none; display: grid;
+  grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem;
+}
+.course-list li { font-size: 0.93rem; color: var(--ink-soft); line-height: 1.4; }
+.course-list .code {
+  font-family: var(--mono); font-size: 0.74rem;
+  color: var(--copper-deep); margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+/* CV — skills rows */
+.skill-row {
+  display: grid; grid-template-columns: 11rem 1fr;
+  gap: 1.25rem; padding: 0.8rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.skill-row:last-child { border-bottom: none; }
+.skill-row .cat {
+  font-family: var(--mono); font-size: 0.74rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--copper-deep); padding-top: 0.15rem;
+}
+.skill-row .items { font-size: 0.95rem; color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .course-list { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
 /* FOOTER */
 footer.site {
   border-top: 1px solid var(--rule);
