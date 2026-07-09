@@ -39,6 +39,14 @@
 
   --shadow-soft: 0 12px 28px rgba(0,73,47,0.12);
   --shadow-tile: 0 8px 24px rgba(0,73,47,0.10);
+
+  /* v4 — extended palette */
+  --teal:        #0e7c86;   /* spectrum teal — bridges green & gold */
+  --teal-soft:   #35a3ac;
+  --pine:        #0f1f18;   /* near-black green for dark panels */
+  --pine-2:      #142b20;
+  --mint:        #dcefe6;   /* pale green wash for section bands */
+  --grad-eng:    linear-gradient(120deg, #00492f 0%, #006747 45%, #0e7c86 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -637,3 +645,184 @@ figure.project.carousel.carousel--adaptive {
 .hero-identity .name-block > *:nth-child(3) { animation-delay: 0.26s; }
 .hero-identity .name-block > *:nth-child(4) { animation-delay: 0.34s; }
 .headshot { animation: rise 0.7s ease-out 0.05s backwards; }
+
+/* ============================================================
+   v4 — visual flow layer
+   scroll reveals · richer surfaces · module spotlight
+   ============================================================ */
+
+/* --- scroll reveal system (flow.js toggles .in-view) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--stagger, 0) * 90ms);
+  will-change: opacity, transform;
+}
+.reveal.in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* eyebrow rule that draws itself in as the section arrives */
+.eyebrow { position: relative; padding-left: 2.2rem; }
+.eyebrow::before {
+  content: '';
+  position: absolute; left: 0; top: 50%;
+  height: 2px; width: 1.6rem;
+  background: currentColor;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.in-view .eyebrow::before, .eyebrow.in-view::before { transform: scaleX(1); }
+
+/* --- richer section rhythm: alternating pale-green bands --- */
+section.band {
+  background: linear-gradient(180deg, var(--mint) 0%, rgba(220,239,230,0.35) 100%);
+  border-top: 1px solid var(--rule);
+  margin: 0 calc(-1 * var(--gutter));
+  padding-left: var(--gutter); padding-right: var(--gutter);
+}
+
+/* --- image treatments --- */
+.dest-tile .tile-visual img,
+.proj-card .visual img,
+.scroll-card .photo img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s;
+}
+.dest-tile:hover .tile-visual img,
+.proj-card:hover .visual img,
+.scroll-card:hover .photo img { transform: scale(1.05); }
+.dest-tile .tile-visual::after,
+.proj-card .visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,73,47,0.18) 100%);
+  pointer-events: none;
+}
+figure.project img, .img-slide > img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img-slide:hover > img { transform: scale(1.02); }
+
+/* hero rings: slow resonance pulse */
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.45; transform: translateY(-50%) scale(1); }
+  50%      { opacity: 0.75; transform: translateY(-50%) scale(1.06); }
+}
+.hero-banner::after { animation: ring-pulse 6s ease-in-out infinite; }
+
+/* --- MODULE SPOTLIGHT (dark panel, IMAGEVK-74) --- */
+.module-feature {
+  background:
+    radial-gradient(ellipse at 75% 30%, rgba(14,124,134,0.25) 0%, transparent 55%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 22px),
+    linear-gradient(135deg, var(--pine) 0%, var(--pine-2) 60%, #0c3325 100%);
+  color: var(--paper);
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 3.75rem var(--gutter);
+  border-top: 3px solid var(--copper);
+  position: relative;
+  overflow: hidden;
+}
+.module-feature .eyebrow { color: var(--gold); }
+.module-feature h2 { color: var(--paper); }
+.module-feature p { color: rgba(251,250,246,0.82); max-width: 58ch; }
+.module-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem; align-items: center;
+  max-width: var(--maxw); margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.module-visual {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+}
+.module-visual img {
+  width: 100%; max-width: 420px; display: block;
+  border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  position: relative; z-index: 2;
+  background: #fff;
+}
+/* animated radar rings behind the module */
+.module-visual::before, .module-visual::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 340px; height: 340px;
+  margin: -170px 0 0 -170px;
+  border: 1px solid rgba(207,196,147,0.5);
+  border-radius: 50%;
+  animation: radar-ring 4s ease-out infinite;
+  z-index: 1;
+}
+.module-visual::after { animation-delay: 2s; }
+@keyframes radar-ring {
+  0%   { transform: scale(0.55); opacity: 0.8; }
+  100% { transform: scale(1.5);  opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .module-visual::before, .module-visual::after, .hero-banner::after { animation: none; }
+}
+.module-specs {
+  list-style: none; margin: 1.25rem 0 1.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1.5rem;
+}
+.module-specs li {
+  font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.03em;
+  color: rgba(251,250,246,0.9);
+  padding-left: 1.1rem; position: relative;
+}
+.module-specs li::before {
+  content: '▸'; position: absolute; left: 0; color: var(--teal-soft);
+}
+.module-feature .btn {
+  border-color: var(--gold); color: var(--gold);
+}
+.module-feature .btn:hover { background: var(--gold); color: var(--pine); }
+.module-credit {
+  font-family: var(--mono); font-size: 0.68rem;
+  color: rgba(251,250,246,0.45); margin-top: 0.75rem;
+}
+
+/* --- news timeline: animated dot + connecting line --- */
+.news-list { list-style: none; max-width: 62ch; position: relative; }
+.news-list li {
+  padding: 0.65rem 0 0.65rem 1.6rem;
+  border-bottom: 1px dotted var(--rule);
+  display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;
+  position: relative;
+}
+.news-list li:last-child { border-bottom: none; }
+.news-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 1.15rem;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--copper);
+  box-shadow: 0 0 0 3px rgba(0,103,71,0.15);
+}
+.news-list li:first-child::before {
+  background: var(--teal);
+  animation: news-pulse 2.5s ease-in-out infinite;
+}
+@keyframes news-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(14,124,134,0.2); }
+  50%      { box-shadow: 0 0 0 7px rgba(14,124,134,0.08); }
+}
+.news-list .date {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);
+}
+
+/* gradient keyword accents in headings */
+.grad-text {
+  background: var(--grad-eng);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+@media (max-width: 880px) {
+  .module-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .module-specs { grid-template-columns: 1fr; }
+}

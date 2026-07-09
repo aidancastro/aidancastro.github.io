@@ -97,7 +97,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="band">
     <span class="eyebrow eng">Research statement</span>
     <h2>What I want to do next.</h2>
     <p style="max-width: 64ch;">My research interests sit at the intersection of <strong>antenna systems, radar imaging, and machine learning for RF</strong>. I'm drawn to problems where signal-processing rigor meets electromagnetic constraints &mdash; mmWave MIMO imaging, near-field calibration, MIMO-SAR reconstruction, and learned approaches to clutter and target separation in compact-aperture radars.</p>
@@ -108,32 +108,56 @@
     </div>
   </section>
 
+  <section class="module-feature">
+    <div class="module-grid">
+      <div class="module-visual">
+        <img src="https://www.minicircuits.com/WebStore/images/vtrig-74/IMAGEVK-74.png"
+             alt="Mini-Circuits / Vayyar IMAGEVK-74 4D millimeter wave imaging kit"
+             loading="lazy"
+             onerror="this.onerror=null;this.src='assets/WebsitePhotos/printer_testbed.png';">
+      </div>
+      <div>
+        <span class="eyebrow">Instrument of choice</span>
+        <h2>IMAGEVK-74 <span class="grad-text">4D mmWave</span> imaging kit.</h2>
+        <p>My radar imaging work is built on the Mini-Circuits / Vayyar IMAGEVK-74 — a 20&thinsp;TX &times; 20&thinsp;RX integrated antenna array sweeping 62&ndash;69 GHz. Mounted on a modified 3D-printer gantry, it becomes the front end for my SFCW MIMO-SAR backprojection pipeline.</p>
+        <ul class="module-specs">
+          <li>62&ndash;69 GHz SFCW operation</li>
+          <li>20 TX &times; 20 RX virtual array</li>
+          <li>Per-pair IQ / phasor access</li>
+          <li>Python &amp; MATLAB API</li>
+        </ul>
+        <a href="research.html#radar" class="btn">See the imaging pipeline →</a>
+        <div class="module-credit">Product photo © Mini-Circuits</div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <span class="eyebrow">News</span>
     <h2>Recent.</h2>
-    <ul style="list-style: none; max-width: 60ch;">
-       <li style="padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">June 11, 2026</span>
+    <ul class="news-list">
+      <li>
+        <span class="date">June 11, 2026</span>
         <span>"Low-cost precision scanning platform for mm-wave SAR imaging using a modified 3D printer" in SPIE Volume 14039</span>
       </li>
-         <li style="padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">April 20, 2026</span>
-        <span> 1st place in student poster competition at WAMICON 2026 (poster in research section)</span>
+      <li>
+        <span class="date">April 20, 2026</span>
+        <span>1st place in student poster competition at WAMICON 2026 (poster in research section)</span>
       </li>
-      <li style="padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">May 2026</span>
-        <span>Dual-band PIFA design finalized in HFSS </span>
+      <li>
+        <span class="date">May 2026</span>
+        <span>Dual-band PIFA design finalized in HFSS</span>
       </li>
-      <li style="padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">Apr 2026</span>
+      <li>
+        <span class="date">Apr 2026</span>
         <span>Solo viola recital &mdash; Bach, Bloch, Clarke, Beach.</span>
       </li>
-      <li style="padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">Mar 2026</span>
+      <li>
+        <span class="date">Mar 2026</span>
         <span>BFP420 LNA layout cosimulation completed in ADS; group report submitted.</span>
       </li>
-      <li style="padding: 0.6rem 0; display: grid; grid-template-columns: 7rem 1fr; gap: 1.25rem;">
-        <span style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-mute);">Feb 2026</span>
+      <li>
+        <span class="date">Feb 2026</span>
         <span>Extending mmWave MIMO radar pipeline toward MIMO-SAR imaging.</span>
       </li>
     </ul>
@@ -146,6 +170,6 @@
   <span>Built with care · Tampa, Florida</span>
 </footer>
 
-<script src="assets/carousel.js"></script>
+<script src="assets/flow.js"></script>
 </body>
 </html>

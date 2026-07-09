@@ -173,6 +173,12 @@
       <p>Built a 3D backprojection imaging pipeline for an SFCW MIMO module scanned in a snake pattern via a modified 3D-printer stage. Implemented FOV masking, coherent vs. incoherent summation, background subtraction, outlier rejection for corrupted TX/RX pairs, and near-field bistatic phase calibration using redundant-baseline techniques. Currently extending toward MIMO-SAR imaging with a literature survey contrasting commercial mmWave modules against custom-built systems.</p>
       <div class="img-set">
         <figure class="img-slide">
+          <img src="https://www.minicircuits.com/WebStore/images/vtrig-74/IMAGEVK-74.png"
+               alt="IMAGEVK-74 4D mmWave imaging kit"
+               onerror="this.onerror=null;this.parentElement.style.display='none';">
+          <figcaption>Mini-Circuits / Vayyar IMAGEVK-74 — 20&times;20 array, 62&ndash;69 GHz (photo © Mini-Circuits)</figcaption>
+        </figure>
+        <figure class="img-slide">
           <img src="assets/WebsitePhotos/scanning_pattern.png" alt="Radar scanning pattern">
           <figcaption>Snake scanning pattern — 20×20 virtual aperture</figcaption>
         </figure>
@@ -220,7 +226,7 @@
 
   </section>
 
-  <section>
+  <section class="band">
     <span class="eyebrow">Tools</span>
     <h2>Technical stack.</h2>
     <p>Simulation: Ansys HFSS, Keysight ADS (Modelithics models). Numerical: MATLAB, Python (NumPy/SciPy, OpenCV). Signal processing: backprojection, RMA / ω-k, Stolt interpolation, near-field calibration. Hardware: NXP PBR941, Infineon BFP420, FR4 / RO4350B substrates, SFCW MIMO modules (IMAGEVK-74).</p>
@@ -233,5 +239,6 @@
   <span><a href="index.html" style="color:inherit;">← back to home</a></span>
 </footer>
 
+<script src="assets/flow.js"></script>
 </body>
 </html>
